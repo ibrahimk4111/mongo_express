@@ -44,7 +44,7 @@ exports.updateUser = (req, res) => {
 exports.deleteUser = (req, res) => {
   try {
     res.status(200).json("delete users");
-    // res.status(301).redirect("/");
+    res.status(301).redirect("/");
   } catch (error) {
     res.status(500).json("server error");
   }
