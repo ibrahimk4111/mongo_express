@@ -1,6 +1,6 @@
 const tableBody = document.querySelector(".tableBody");
 
-const url = "https://backend-express-server.onrender.com/";
+const url = "https://mongoose-express-c5hu.onrender.com/";
 // const url = "http://localhost:8800/";
 
 const fetchData = async (urlPath, fn) => {
