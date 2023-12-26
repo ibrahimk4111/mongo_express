@@ -20,7 +20,7 @@ const tableRows = (datas) => {
             <tr>
               <th scope="col">${index + 1}</th>
               <td class=" text-nowrap ">${data.name}</td>
-              <td >${data.email}</td>
+              <td>${data.email}</td>
               <td>${data.age}</td>
               <td>
                 <div class="d-flex justify-content-center align-items-center gap-3">
