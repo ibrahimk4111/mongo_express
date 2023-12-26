@@ -24,3 +24,15 @@ const path = require("path") then sendFile(path.join(__dirname + "/../views/inde
 `
 Click on Database Access > Database Users > (EDIT) actions > Specific Privileges > Add Specific Privilege > readWriteAnyDatabase (Select Role) > Update User
 `
+
+### Problem no - 3 : 
+`
+servers: Map(1) { 'localhost:27017' => [ServerDescription] },     type: 'Unknown',   reason: TopologyDescription {     at NativeConnection.openUri (/opt/render/project/src/node_modules/mongoose/lib/connection.js:784:11) {     at _handleConnectionErro }}
+`
+
+### solution of problem - 3 : Try with 127.0.0.1:27017 instead of localhost:27017
+
+
+### Problem no - 4 : mongoose.connect(), first argument should be String, received undefined
+
+### solution of problem - 4 : dburl: process.env.DB_URL || `"mongodb://127.0.0.1:27017/[Database Name]"`
