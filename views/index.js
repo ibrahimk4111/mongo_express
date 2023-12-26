@@ -1,7 +1,7 @@
 const tableBody = document.querySelector(".tableBody");
 
-// const url = "https://backend-express-server.onrender.com/";
-const url = "http://localhost:8800/";
+const url = "https://backend-express-server.onrender.com/";
+// const url = "http://localhost:8800/";
 
 const fetchData = async (urlPath, fn) => {
   try {
