@@ -32,6 +32,7 @@ servers: Map(1) { 'localhost:27017' => [ServerDescription] },     type: 'Unknown
 
 ### solution of problem - 3 : Try with 127.0.0.1:27017 instead of localhost:27017
 
+<hr />
 
 ### Problem no - 4 : mongoose.connect(), first argument should be String, received undefined
 
