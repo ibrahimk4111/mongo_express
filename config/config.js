@@ -1,6 +1,6 @@
 require("dotenv").config()
 
-const config = {
+const dev = {
     app:{
         port: process.env.PORT || 8800    
     },
@@ -9,4 +9,4 @@ const config = {
     }
 }
 
-module.exports = config
+module.exports = dev
