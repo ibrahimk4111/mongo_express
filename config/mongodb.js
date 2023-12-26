@@ -4,7 +4,7 @@ const config = require("./config");
 const dburl = config.url.dburl;
 
 mongoose
-  .connect(dburl)
+  .connect(`${dburl}`)
   .then(() => {
     console.log("Mongoose is connected");
   })
