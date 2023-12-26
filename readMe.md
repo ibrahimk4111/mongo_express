@@ -1,3 +1,9 @@
+## Mongoose + NodeJs + Express app Deploy on render || Deploy express app on render server
+
+` step 1: connect to the github repo `
+
+` step 2: set Environment key and value same as your .env file contains`
+
 ### problem No - 1 : ForbiddenError: Forbidden
 
 ```
@@ -40,3 +46,4 @@ servers: Map(1) { 'localhost:27017' => [ServerDescription] },     type: 'Unknown
 ### Problem no - 4 : mongoose.connect(), first argument should be String, received undefined
 
 ### solution of problem - 4 : dburl: process.env.DB_URL || `"mongodb://127.0.0.1:27017/[Database Name]"`
+
