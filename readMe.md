@@ -18,12 +18,15 @@ ForbiddenError: Forbidden
 `
 const path = require("path") then sendFile(path.join(__dirname + "/../views/index.html"))
 `
+<hr />
+
 ### problem No - 2 : user is not allowed to do action [insert] on [backend_express_practice.users]
 
 ### solution of problem - 2 : 
 `
 Click on Database Access > Database Users > (EDIT) actions > Specific Privileges > Add Specific Privilege > readWriteAnyDatabase (Select Role) > Update User
 `
+<hr />
 
 ### Problem no - 3 : 
 `
