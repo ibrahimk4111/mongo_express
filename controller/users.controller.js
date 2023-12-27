@@ -27,7 +27,7 @@ exports.createUsers = async (req, res) => {
       age: Number(req.body.age),
     });
     await newUser.save();
-    res.status(201).json(newUser);
+    // res.status(201).json(newUser);
     res.status(301).redirect("/");
   } catch (error) {
     console.log(error.message);
