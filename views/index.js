@@ -1,7 +1,7 @@
 const tableBody = document.querySelector(".tableBody");
 
-const url = "https://mongoose-express-c5hu.onrender.com/";
-// const url = "http://127.0.0.1:8800/";
+// const url = "https://mongoose-express-c5hu.onrender.com/";
+const url = "http://127.0.0.1:8800/";
 
 const fetchData = async (urlPath, fn) => {
   try {
@@ -25,7 +25,7 @@ const tableRows = (datas) => {
               <td>
                 <div class="d-flex justify-content-center align-items-center gap-3">
                   <a href="#" target="_blank" ><i class="fa-regular fa-pen-to-square"></i></a> 
-                  <a href="#" onclick="deleteBtn('${data.id}')"><i class="fa-solid fa-trash-can"></i></a>
+                  <a href="#" onclick="deleteBtn('${data._id}')"><i class="fa-solid fa-trash-can"></i></a>
                 </div>
               </td>
             </tr>
@@ -38,6 +38,7 @@ const tableRows = (datas) => {
 fetchData(url + "users", tableRows);
 
 const deleteBtn = (id) => {
+
   fetch(url + "users/" + id, {
     method: "DELETE",
     headers: {
@@ -48,6 +49,5 @@ const deleteBtn = (id) => {
     .then((data) => console.log(data));
 
   window.location.reload();
-
   console.log("deleted ID :", id);
 };

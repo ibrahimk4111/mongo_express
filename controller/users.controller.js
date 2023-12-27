@@ -6,7 +6,6 @@ exports.getUsersForm = (req, res) => {
   res.sendFile(path.join(__dirname, "/../views/index.html"));
 };
 
-
 // get users
 exports.getUsers = async (req, res) => {
   const users = await User.find();
@@ -15,7 +14,7 @@ exports.getUsers = async (req, res) => {
 
 // get One user
 exports.getOneUser = async (req, res) => {
-  const user = await User.findOne({_id: req.params.id});
+  const user = await User.findOne({ id: req.params.id });
   res.status(200).json(user);
 };
 
@@ -25,27 +24,37 @@ exports.createUsers = async (req, res) => {
     const newUser = new User({
       name: req.body.name,
       email: req.body.email,
-      age: Number(req.body.age)
-    })
+      age: Number(req.body.age),
+    });
     await newUser.save();
-    // res.status(201).json(newUser);
+    res.status(201).json(newUser);
     res.status(301).redirect("/");
   } catch (error) {
-    console.log(error.message)
+    console.log(error.message);
   }
 };
 
 // update user's data
-exports.updateUser = (req, res) => {
-  res.status(200).json("update users");
+exports.updateUser = async (req, res) => {
+  try {
+    const user = await User.findOne({ id: req.body.id });
+    user.name = req.body.name;
+    user.email = req.body.email;
+    user.age = Number(req.body.age);
+    await user.save();
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).send(error.message)
+  }
 };
 
 // delete user
-exports.deleteUser = (req, res) => {
+exports.deleteUser = async (req, res) => {
   try {
-    res.status(200).json("delete users");
+    await User.deleteOne({ id: req.body.id });
+    res.status(200).json({ message: "user is deleted" });
     res.status(301).redirect("/");
   } catch (error) {
-    res.status(500).json("server error");
+    res.status(500).send(error.message);
   }
 };
