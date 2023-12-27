@@ -1,7 +1,7 @@
 const tableBody = document.querySelector(".tableBody");
 
-const url = "https://mongoose-express-c5hu.onrender.com/";
-// const url = "http://127.0.0.1:8800/";
+// const url = "https://mongoose-express-c5hu.onrender.com/";
+const url = "http://127.0.0.1:8800/";
 
 const fetchData = async (urlPath, fn) => {
   try {

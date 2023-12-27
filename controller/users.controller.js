@@ -14,8 +14,9 @@ exports.getUsers = async (req, res) => {
 
 // get One user
 exports.getOneUser = async (req, res) => {
-  const user = await User.findOne({ id: req.params.id });
-  res.status(200).json(user);
+  const userId = req.params.id
+  const user = await User.findOne({ _id: userId });
+  res.status(200).json({userId, user });
 };
 
 // post users or create new user
@@ -27,8 +28,9 @@ exports.createUsers = async (req, res) => {
       age: Number(req.body.age),
     });
     await newUser.save();
+    // res.status(200).json(newUser);
+    res.sendFile(path.join(__dirname, "/../views/index.html"));
     res.status(301).redirect("/");
-    res.status(200).json(newUser);
   } catch (error) {
     console.log(error.message);
   }
@@ -37,7 +39,7 @@ exports.createUsers = async (req, res) => {
 // update user's data
 exports.updateUser = async (req, res) => {
   try {
-    const user = await User.findOne({ id: req.body.id });
+    const user = await User.findOne({ _id: req.body.id });
     user.name = req.body.name;
     user.email = req.body.email;
     user.age = Number(req.body.age);
@@ -51,9 +53,11 @@ exports.updateUser = async (req, res) => {
 // delete user
 exports.deleteUser = async (req, res) => {
   try {
-    await User.deleteOne({ id: req.body.id });
-    res.status(200).json({ message: "user is deleted" });
-    res.status(301).redirect("/");
+    const userId = req.params.id;
+    await User.deleteOne({ _id: userId });
+    // res.status(200).json({userId});
+    res.sendFile(path.join(__dirname, "/../views/index.html"));
+    res.status(301).redirect('/');
   } catch (error) {
     res.status(500).send(error.message);
   }
