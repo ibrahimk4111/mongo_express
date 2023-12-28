@@ -1,13 +1,14 @@
 const tableBody = document.querySelector(".tableBody");
 
-const url = "https://mongoose-express-c5hu.onrender.com/";
-// const url = "http://127.0.0.1:8800/";
+// const url = "https://mongoose-express-c5hu.onrender.com/";
+const url = "http://127.0.0.1:8800/";
 
 const fetchData = async (urlPath, fn) => {
   try {
     const response = await fetch(urlPath);
     const data = await response.json();
-    await fn(data);
+    console.log( data )
+    fn(data);
   } catch (error) {
     console.log(error.message);
   }
@@ -22,6 +23,7 @@ const tableRows = (datas) => {
               <td class=" text-nowrap ">${data.name}</td>
               <td>${data.email}</td>
               <td>${data.age}</td>
+              <td>${data.file}</td>
               <td>
                 <div class="d-flex justify-content-center align-items-center gap-3">
                   <a href="#" target="_blank" ><i class="fa-regular fa-pen-to-square"></i></a> 

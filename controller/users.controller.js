@@ -26,6 +26,7 @@ exports.createUsers = async (req, res) => {
       name: req.body.name,
       email: req.body.email,
       age: Number(req.body.age),
+      file: req.file.filename
     });
     await newUser.save();
     // res.status(200).json(newUser);

@@ -29,20 +29,19 @@
     <h3>Form for Create user (MVC practice)</h3>
 
     <!-- form  -->
-    <form
-      action="/users"
-      method="POST"
-      class="d-flex flex-lg-row flex-column gap-1 w-75"
-    >
-      <input type="text" name="name" placeholder="your name" required />
-      <input
-        type="text"
-        name="email"
-        placeholder="ibrahim@gmail.com"
-        required
-      />
-      <input type="number" name="age" placeholder="age" required />
-      <button type="submit">create user</button>
+    <form action="/users" enctype="multipart/form-data" method="POST">
+      <div class="d-flex flex-lg-row flex-column gap-1 w-75">
+        <input type="text" name="name" placeholder="your name" required />
+        <input
+          type="text"
+          name="email"
+          placeholder="ibrahim@gmail.com"
+          required
+        />
+        <input type="number" name="age" placeholder="age" required />
+        <input type="file" name="file" placeholder="file" required />
+        <button type="submit">create user</button>
+      </div>
     </form>
 
     <!-- showcase section -->
@@ -53,13 +52,14 @@
           <th scope="col">Name</th>
           <th scope="col">Email</th>
           <th scope="col">Age</th>
+          <th scope="col">Files</th>
           <th scope="col">Actions</th>
         </tr>
       </thead>
       <tbody class="tableBody"></tbody>
     </table>
 
-    <script src="index.js" ></script>
+    <script src="index.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
       integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
