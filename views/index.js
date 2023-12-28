@@ -23,7 +23,11 @@ const tableRows = (datas) => {
               <td class=" text-nowrap ">${data.name}</td>
               <td>${data.email}</td>
               <td>${data.age}</td>
-              <td>${data.file}</td>
+              <td>
+                <div class="d-flex justify-content-center align-items-center gap-3">
+                  <img src="./uploads/${data.file}" alt="${data.file}" width="auto" height="100">
+                <div/>
+              </td>
               <td>
                 <div class="d-flex justify-content-center align-items-center gap-3">
                   <a href="#" target="_blank" ><i class="fa-regular fa-pen-to-square"></i></a> 
