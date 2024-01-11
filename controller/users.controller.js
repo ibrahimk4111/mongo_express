@@ -14,9 +14,9 @@ exports.getUsers = async (req, res) => {
 
 // get One user
 exports.getOneUser = async (req, res) => {
-  const userId = req.params.id
+  const userId = req.params.id;
   const user = await User.findOne({ _id: userId });
-  res.status(200).json({userId, user });
+  res.status(200).json({ userId, user });
 };
 
 // post users or create new user
@@ -26,11 +26,20 @@ exports.createUsers = async (req, res) => {
       name: req.body.name,
       email: req.body.email,
       age: Number(req.body.age),
-      file: req.file.filename
     });
+
+    if (req.files) {
+      let imagesPath = [];
+      req.files.map((file) => {
+        imagesPath.push(file.filename);
+      });
+      // console.log(imagesPath);
+      newUser.images = imagesPath;
+    }
+
     await newUser.save();
     // res.status(200).json(newUser);
-    res.sendFile(path.join(__dirname, "/../views/index.html"));
+    // res.sendFile(path.join(__dirname, "/../views/index.html"));
     res.status(301).redirect("/");
   } catch (error) {
     console.log(error.message);
@@ -47,7 +56,7 @@ exports.updateUser = async (req, res) => {
     await user.save();
     res.status(200).json(user);
   } catch (error) {
-    res.status(500).send(error.message)
+    res.status(500).send(error.message);
   }
 };
 
@@ -58,7 +67,7 @@ exports.deleteUser = async (req, res) => {
     await User.deleteOne({ _id: userId });
     // res.status(200).json({userId});
     res.sendFile(path.join(__dirname, "/../views/index.html"));
-    res.status(301).redirect('/');
+    res.status(301).redirect("/");
   } catch (error) {
     res.status(500).send(error.message);
   }

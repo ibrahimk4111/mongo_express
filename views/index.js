@@ -1,7 +1,7 @@
 const tableBody = document.querySelector(".tableBody");
 
-// const url = "https://mongoose-express-c5hu.onrender.com/";
-const url = "http://127.0.0.1:8800/";
+const url = "https://mongoose-express-c5hu.onrender.com/";
+// const url = "http://127.0.0.1:8800/";
 
 const fetchData = async (urlPath, fn) => {
   try {
@@ -23,11 +23,7 @@ const tableRows = (datas) => {
               <td class=" text-nowrap ">${data.name}</td>
               <td>${data.email}</td>
               <td>${data.age}</td>
-              <td>
-                <div class="d-flex justify-content-center align-items-center gap-3">
-                  <img src="./uploads/${data.file}" alt="${data.file}" width="100" height="auto">
-                <div/>
-              </td>
+              <td>${(data.images).length}</td>
               <td>
                 <div class="d-flex justify-content-center align-items-center gap-3">
                   <a href="#" target="_blank" ><i class="fa-regular fa-pen-to-square"></i></a> 

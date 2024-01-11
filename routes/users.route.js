@@ -21,12 +21,12 @@ const storage = multer.diskStorage({
   },
 });
 
-const upload = multer({ storage: storage });
+const upload = multer({ storage: storage }).array("files");
 
 router.get("/", getUsersForm);
 router.get("/users", getUsers);
 router.get("/users/:id", getOneUser);
-router.post("/users", upload.single('file'), createUsers);
+router.post("/users", upload, createUsers);
 router.put("/users/:id", updateUser);
 router.delete("/users/:id", deleteUser);
 

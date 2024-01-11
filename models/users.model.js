@@ -4,7 +4,7 @@ const userSchema = mongoose.Schema({
   name: String,
   email: String,
   age: Number,
-  file: String,
+  images: Array,
   createdOn:{
     type: Date,
     default: Date.now
