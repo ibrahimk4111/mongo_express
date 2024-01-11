@@ -39,7 +39,7 @@ exports.createUsers = async (req, res) => {
 
     await newUser.save();
     // res.status(200).json(newUser);
-    // res.sendFile(path.join(__dirname, "/../views/index.html"));
+    res.sendFile(path.join(__dirname, "/../views/index.html"));
     res.status(301).redirect("/");
   } catch (error) {
     console.log(error.message);
